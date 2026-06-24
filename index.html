@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#2f3a24">
+  <title>Amateur Radio License Prep</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="radio-mark" aria-hidden="true">
+      <div class="ht left"><span></span></div>
+      <div class="rf-line"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="ht right"><span></span></div>
+    </div>
+    <h1>Amateur Radio License Prep</h1>
+    <p>Prepare. Practice. Pass.</p>
+    <small>Technician • General • Amateur Extra</small>
+  </header>
+
+  <main>
+    <section id="setupPage" class="page active">
+      <div class="card">
+        <div class="kicker">First Launch Setup</div>
+        <h2>What license do you currently hold?</h2>
+        <p>This helps the app point you toward your next recommended certification. You can change this later.</p>
+        <div class="choice-list">
+          <button onclick="setLicense('none')">No Amateur Radio License</button>
+          <button onclick="setLicense('technician')">Technician</button>
+          <button onclick="setLicense('general')">General</button>
+          <button onclick="setLicense('extra')">Amateur Extra</button>
+        </div>
+      </div>
+      <footer>Designed by LowerSoDak © 2026</footer>
+    </section>
+
+    <section id="homePage" class="page">
+      <div class="card hero-card">
+        <div class="kicker">Dashboard</div>
+        <h2 id="statusTitle">Current Status</h2>
+        <p id="statusText"></p>
+        <div class="path" id="licensePath"></div>
+      </div>
+
+      <div class="card recommended">
+        <div class="kicker">Recommended Next Step</div>
+        <h2 id="recommendedTitle"></h2>
+        <p id="recommendedText"></p>
+        <button class="primary" onclick="openStudyRecommended()">Study</button>
+        <button class="secondary" onclick="openTestRecommended()">Mock Test</button>
+      </div>
+
+      <div class="card">
+        <div class="kicker">All License Classes</div>
+        <div class="license-grid">
+          <button onclick="selectClass('technician'); showPage('studyPage')"><strong>Technician</strong><span>Entry level license</span></button>
+          <button onclick="selectClass('general'); showPage('studyPage')"><strong>General</strong><span>Expanded HF privileges</span></button>
+          <button onclick="selectClass('extra'); showPage('studyPage')"><strong>Amateur Extra</strong><span>Highest amateur class</span></button>
+        </div>
+      </div>
+
+      <div class="card">
+        <details>
+          <summary>Install on your device</summary>
+          <h3>iPhone / iPad</h3>
+          <ol>
+            <li>Open this page in Safari.</li>
+            <li>Tap the Share button.</li>
+            <li>Tap Add to Home Screen.</li>
+            <li>Tap Add.</li>
+          </ol>
+          <h3>Android</h3>
+          <ol>
+            <li>Open this page in Chrome.</li>
+            <li>Tap the three-dot menu.</li>
+            <li>Tap Add to Home Screen or Install App.</li>
+            <li>Tap Install.</li>
+          </ol>
+        </details>
+      </div>
+
+      <footer>Designed by LowerSoDak © 2026</footer>
+    </section>
+
+    <section id="studyPage" class="page">
+      <div class="card">
+        <div class="kicker">Study Mode</div>
+        <h2 id="studyTitle">Study</h2>
+        <div class="button-row">
+          <select id="classSelect" onchange="selectClass(this.value)">
+            <option value="technician">Technician</option>
+            <option value="general">General</option>
+            <option value="extra">Amateur Extra</option>
+          </select>
+          <select id="sectionSelect" onchange="newQuestion()">
+            <option value="all">All Sections</option>
+          </select>
+        </div>
+        <button class="primary" onclick="newQuestion()">Random Question</button>
+        <button class="secondary" onclick="reviewMissed()">Review Missed</button>
+      </div>
+
+      <div class="card question-card">
+        <div class="question-meta">
+          <span id="questionId">Question</span>
+          <span id="questionCount">0 loaded</span>
+        </div>
+        <h2 id="questionText">Choose a class and start studying.</h2>
+        <div id="answerList" class="answers"></div>
+        <div id="resultBox" class="result hidden">
+          <p id="resultText"></p>
+          <details id="explanationDetails">
+            <summary>Why is this correct?</summary>
+            <p id="explanationText"></p>
+            <div id="linkList"></div>
+          </details>
+          <button class="primary" onclick="newQuestion()">Next Question</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Stats</h3>
+        <div class="stats">
+          <div><strong id="seenStat">0</strong><span>Seen</span></div>
+          <div><strong id="correctStat">0</strong><span>Correct</span></div>
+          <div><strong id="missedStat">0</strong><span>Missed</span></div>
+        </div>
+      </div>
+
+      <footer>Designed by LowerSoDak © 2026</footer>
+    </section>
+
+    <section id="testPage" class="page">
+      <div class="card">
+        <div class="kicker">Mock Test</div>
+        <h2 id="testTitle">Practice Exam</h2>
+        <p>Technician and General practice tests are 35 questions. Amateur Extra is 50 questions. This mockup uses available sample questions until the full pools are loaded.</p>
+        <select id="testClassSelect">
+          <option value="technician">Technician</option>
+          <option value="general">General</option>
+          <option value="extra">Amateur Extra</option>
+        </select>
+        <button class="primary" onclick="startExam()">Start Exam</button>
+      </div>
+
+      <div id="examCard" class="card hidden">
+        <div class="question-meta">
+          <span id="examProgress">Question 1</span>
+          <span id="examScoreLive">Mock Test</span>
+        </div>
+        <h2 id="examQuestionText"></h2>
+        <div id="examAnswerList" class="answers"></div>
+        <button class="secondary" onclick="nextExamQuestion()">Next</button>
+      </div>
+
+      <div id="examResultCard" class="card hidden">
+        <h2 id="examFinalScore"></h2>
+        <p id="examPassFail"></p>
+        <button class="primary" onclick="showPage('studyPage')">Review Study Mode</button>
+      </div>
+
+      <footer>Designed by LowerSoDak © 2026</footer>
+    </section>
+
+    <section id="contactPage" class="page">
+      <div class="card">
+        <div class="kicker">About</div>
+        <h2>Amateur Radio License Prep</h2>
+        <p>Offline-first study and testing prep for U.S. Amateur Radio license classes.</p>
+        <p><strong>Designed by LowerSoDak © 2026</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>Appearance</h3>
+        <button class="secondary" onclick="setTheme('light')">Light Background</button>
+        <button class="primary" onclick="setTheme('dark')">Dark Background</button>
+      </div>
+
+      <div class="card">
+        <h3>Settings</h3>
+        <p>Change your current license level:</p>
+        <div class="choice-list compact">
+          <button onclick="setLicense('none')">No License</button>
+          <button onclick="setLicense('technician')">Technician</button>
+          <button onclick="setLicense('general')">General</button>
+          <button onclick="setLicense('extra')">Extra</button>
+        </div>
+      </div>
+
+      <footer>Designed by LowerSoDak © 2026</footer>
+    </section>
+  </main>
+
+  <nav>
+    <button onclick="showPage('homePage')">Home</button>
+    <button onclick="showPage('studyPage')">Study</button>
+    <button onclick="showPage('testPage')">Test</button>
+    <button onclick="showPage('contactPage')">About</button>
+  </nav>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

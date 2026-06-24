@@ -1,0 +1,15 @@
+{
+  "name": "Amateur Radio License Prep",
+  "short_name": "Radio Prep",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#12160f",
+  "theme_color": "#2f3a24",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
