@@ -1,4 +1,4 @@
-AMATEUR RADIO LICENSE PREP - VERSION v2.1.0
+AMATEUR RADIO LICENSE PREP - VERSION v3.0.1
 
 Final full-pool build. Upload all files in this folder to the root of your GitHub Pages repository.
 
@@ -12,20 +12,12 @@ Included figure files are stored in /figures and displayed automatically for fig
 Notes:
 - The pools were converted from NCVEC public release PDFs dated Feb. 4/19 2026 where applicable.
 - Verify content against official NCVEC/FCC resources before public release.
-- Discord contact link removed. Reddit placeholder remains in index.html.
+*************************************************************************************
+
+this is a free to use study guide for license testing and is still under developement and testing. if you find a bug please contact me via reddit user name LowerSoDak.
+
+*************************************************************************************
 
 Designed by LowerSoDak © 2026
 
-Update v3.0.0:
-- Release-candidate polish pass.
-- Cleaner animations and button feedback.
-- Improved answer result banner.
-- Removed explanation/reason UI.
-- Smoother home/study/about visual styling.
-- Version and cache bumped to v3.0.0.
 
-Update v3.0.1:
-- Fixed Study mode answer choices not displaying with full-pool data.
-- Added Reddit profile link: https://www.reddit.com/u/LowerSoDak
-- Removed Discord contact button.
-- Tightened Study page header spacing.
