@@ -27,3 +27,17 @@ Update: Visible app version added. Current version: v1.1.0, build 2026-06-24.
 Update v1.1.1: Home page compact layout fixes for iPhone Safari/app screen sizing.
 
 Update v1.1.2: Smaller centered two-line home title and dashboard overflow containment fix.
+
+Update v1.1.3: Fixed bottom tab navigation so inactive pages are hidden again.
+
+Update v1.2.0:
+- Visible app version/build retained.
+- Force Refresh App button added to About.
+- Question pool version labels added.
+- Sample pool warning added.
+- Missed question review by section added.
+- Progress by license class added.
+- Exam mode lockout notice added.
+- Disclaimer expanded.
+- FCC/ARRL/NCVEC affiliation notice added.
+- Source/last-updated notice added.

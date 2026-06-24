@@ -884,3 +884,130 @@ button {
     margin-top: 8px;
   }
 }
+
+
+/* --- v1.1.3 Page/tab navigation fix --- */
+/* Previous home flex styling overrode hidden page behavior. This restores true tab pages. */
+
+.page {
+  display: none !important;
+}
+
+.page.active {
+  display: block !important;
+}
+
+#homePage.page {
+  display: none !important;
+}
+
+#homePage.page.active {
+  display: flex !important;
+}
+
+#studyPage.page.active,
+#testPage.page.active,
+#contactPage.page.active,
+#setupPage.page.active {
+  display: block !important;
+}
+
+
+/* --- v1.2.0 Functionality and liability additions --- */
+
+.pool-warning {
+  background: rgba(199, 122, 44, .16);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 7px;
+  padding: 9px 10px;
+  font-size: .78rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.pool-label {
+  color: var(--muted);
+  font-size: .86rem;
+  margin: 8px 0 0;
+}
+
+.progress-summary,
+.missed-sections {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 12px;
+  margin: 10px 0;
+}
+
+.progress-summary h2,
+.missed-sections h3 {
+  margin: 0 0 8px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .76rem;
+}
+
+.progress-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.progress-row:first-child {
+  border-top: 0;
+}
+
+.progress-row span {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.progress-row strong {
+  color: var(--accent);
+}
+
+.progress-row small {
+  color: var(--muted);
+}
+
+.missed-sections button {
+  margin: 4px 4px 4px 0;
+  font-size: .82rem;
+}
+
+.info-card a {
+  color: var(--accent);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.info-card a:hover {
+  text-decoration: underline;
+}
+
+.disclaimer-card p {
+  font-size: .92rem;
+}
+
+.version-chip {
+  display: inline-block;
+  color: var(--accent);
+  margin-left: 5px;
+  white-space: nowrap;
+}
+
+@media (max-height: 760px) {
+  #homePage .progress-summary {
+    display: none;
+  }
+
+  .pool-warning {
+    display: none;
+  }
+}
