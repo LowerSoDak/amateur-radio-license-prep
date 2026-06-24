@@ -523,3 +523,223 @@ nav {
   color: var(--accent);
   white-space: nowrap;
 }
+
+
+/* --- v1.1.1 Home page compact redesign --- */
+/* The Study/Test/About pages keep their existing layout. The home dashboard gets its own app-screen layout. */
+
+#homePage {
+  min-height: 100dvh;
+  padding-top: calc(8px + env(safe-area-inset-top));
+  padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#homePage .hero.compact {
+  flex: 0 0 auto;
+  padding: 8px 6px 8px;
+}
+
+#homePage .hero.compact h1 {
+  font-size: clamp(2.1rem, 10.4vw, 3.25rem);
+  line-height: .88;
+  letter-spacing: .01em;
+  max-width: 92vw;
+}
+
+#homePage .hero.compact .rule {
+  margin-top: 10px;
+  height: 2px;
+}
+
+#homePage .hero.compact p {
+  margin-top: 8px;
+  font-size: clamp(.88rem, 3.7vw, 1rem);
+}
+
+#homePage .dashboard-panel {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto auto;
+  gap: 7px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+#homePage .status-ribbon {
+  padding: 7px 8px;
+  margin: 0;
+  font-size: clamp(.58rem, 2.6vw, .7rem);
+  letter-spacing: .12em;
+  line-height: 1.1;
+  text-align: center;
+  white-space: normal;
+}
+
+#homePage .info-card,
+#homePage .action-card,
+#homePage .license-list button,
+#homePage .install {
+  margin: 0;
+  padding: 10px 12px;
+}
+
+#homePage .info-card span,
+#homePage .license-list h2 {
+  font-size: .58rem;
+  letter-spacing: .18em;
+  margin-bottom: 4px;
+}
+
+#homePage .info-card strong {
+  font-size: clamp(1.42rem, 6.8vw, 1.95rem);
+  line-height: 1;
+}
+
+#homePage .info-card p {
+  font-size: .78rem;
+  line-height: 1.2;
+  margin: 6px 0 0;
+}
+
+#homePage .segments {
+  gap: 5px;
+  margin-top: 7px;
+}
+
+#homePage .segments i {
+  height: 9px;
+  flex: 1 1 0;
+  width: auto;
+}
+
+#homePage .action-card {
+  min-height: 58px;
+  gap: 10px;
+}
+
+#homePage .action-card .icon {
+  min-width: 28px;
+  font-size: 1.15rem;
+}
+
+#homePage .action-card strong {
+  font-size: clamp(1.15rem, 5.1vw, 1.45rem);
+  line-height: 1;
+}
+
+#homePage .action-card small {
+  font-size: .72rem;
+  line-height: 1.1;
+}
+
+#homePage .license-list {
+  display: grid;
+  gap: 6px;
+  min-height: 0;
+}
+
+#homePage .license-list h2 {
+  margin: 2px 0 0;
+}
+
+#homePage .license-list button {
+  min-height: 44px;
+}
+
+#homePage .license-list button strong {
+  font-size: .98rem;
+  line-height: 1;
+}
+
+#homePage .license-list button span {
+  display: none;
+}
+
+#homePage .license-list button b {
+  top: 12px;
+  right: 12px;
+  font-size: 1rem;
+}
+
+#homePage .install {
+  padding: 8px 12px;
+  font-size: .82rem;
+}
+
+#homePage footer {
+  flex: 0 0 auto;
+  margin: 8px 0 0;
+  font-size: .68rem;
+}
+
+/* On Safari with the address bar visible, hide non-critical home elements */
+@media (max-height: 760px) {
+  #homePage .hero.compact h1 {
+    font-size: clamp(1.75rem, 8.8vw, 2.75rem);
+  }
+
+  #homePage .hero.compact p {
+    font-size: .82rem;
+  }
+
+  #homePage .dashboard-panel {
+    gap: 6px;
+    padding: 9px;
+  }
+
+  #homePage .info-card p,
+  #homePage .action-card small,
+  #homePage .segments,
+  #homePage .install,
+  #homePage .license-list h2 {
+    display: none;
+  }
+
+  #homePage .info-card,
+  #homePage .action-card,
+  #homePage .license-list button {
+    padding: 9px 11px;
+  }
+
+  #homePage .info-card strong {
+    font-size: clamp(1.22rem, 6.2vw, 1.7rem);
+  }
+
+  #homePage .action-card {
+    min-height: 48px;
+  }
+}
+
+/* Very short viewport fallback */
+@media (max-height: 660px) {
+  #homePage .hero.compact {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  #homePage .hero.compact h1 {
+    font-size: clamp(1.5rem, 7.8vw, 2.25rem);
+  }
+
+  #homePage .hero.compact .rule,
+  #homePage .hero.compact p,
+  #homePage footer {
+    display: none;
+  }
+
+  #homePage .dashboard-panel {
+    gap: 5px;
+  }
+}
+
+/* Keep version visible but compact */
+.version-chip {
+  display: inline-block;
+  color: var(--accent);
+  margin-left: 5px;
+  white-space: nowrap;
+}

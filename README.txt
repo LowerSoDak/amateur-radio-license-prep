@@ -23,3 +23,5 @@ Update: About tab now includes study-aid disclaimer, official resource links, ap
 Update: Mobile layout fixed for iPhone screen scaling, ribbon containment, and reduced home page scrolling.
 
 Update: Visible app version added. Current version: v1.1.0, build 2026-06-24.
+
+Update v1.1.1: Home page compact layout fixes for iPhone Safari/app screen sizing.
