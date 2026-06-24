@@ -17,3 +17,5 @@ questions.js currently contains sample placeholder questions only. Replace it wi
 Designed by LowerSoDak © 2026
 
 Update: Fit-to-screen responsive homepage layout added to reduce scrolling on phone screens.
+
+Update: About tab now includes study-aid disclaimer, official resource links, appearance settings, and license level reset.

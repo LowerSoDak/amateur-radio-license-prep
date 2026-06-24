@@ -242,3 +242,19 @@ nav button{color:#F0EEE8;background:transparent;border:1px solid rgba(240,238,23
     gap: 14px;
   }
 }
+
+
+/* About / disclaimer refinements */
+.info-card a {
+  color: var(--accent);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.info-card a:hover {
+  text-decoration: underline;
+}
+
+.disclaimer-card p {
+  font-size: .92rem;
+}
