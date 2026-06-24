@@ -15,3 +15,5 @@ Important:
 questions.js currently contains sample placeholder questions only. Replace it with the full question pools later.
 
 Designed by LowerSoDak © 2026
+
+Update: Fit-to-screen responsive homepage layout added to reduce scrolling on phone screens.

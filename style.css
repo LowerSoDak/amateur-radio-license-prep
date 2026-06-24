@@ -68,3 +68,177 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;font-weight:800;let
 nav{position:fixed;left:0;right:0;bottom:0;background:rgba(10,14,10,.88);border-top:1px solid rgba(199,122,44,.42);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:10px;display:flex;justify-content:center;gap:6px}
 nav button{color:#F0EEE8;background:transparent;border:1px solid rgba(240,238,232,.16);padding:10px 12px;font-size:.78rem}
 @media(min-width:700px){.form-row{grid-template-columns:1fr 1fr}.choice-list{grid-template-columns:repeat(2,1fr)}}
+
+
+/* --- Screen-fit refinement: reduces homepage scrolling and scales UI by viewport height --- */
+@media (max-height: 760px) {
+  .page {
+    padding-top: 12px;
+    padding-bottom: 74px;
+  }
+
+  .hero {
+    padding: 12px 10px 12px;
+  }
+
+  .hero.compact {
+    padding-top: 8px;
+  }
+
+  .hero h1,
+  .subhead h1 {
+    font-size: clamp(2rem, 9vh, 3.4rem);
+    line-height: .92;
+  }
+
+  .hero p,
+  .subhead p {
+    font-size: .95rem;
+    margin-top: 8px;
+  }
+
+  .rule {
+    margin-top: 12px;
+  }
+
+  .dashboard-panel,
+  .panel {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .info-card,
+  .question-card,
+  .install,
+  .license-list button,
+  .action-card {
+    padding: 11px 12px;
+    margin: 8px 0;
+  }
+
+  .info-card strong {
+    font-size: 1.55rem;
+  }
+
+  .action-card strong {
+    font-size: 1.25rem;
+  }
+
+  .action-card small,
+  .license-list button span,
+  p {
+    font-size: .88rem;
+    line-height: 1.25;
+  }
+
+  .license-list h2 {
+    margin-top: 12px;
+  }
+
+  .segments {
+    margin-top: 8px;
+    gap: 5px;
+  }
+
+  .segments i {
+    height: 10px;
+  }
+
+  footer {
+    margin: 14px 0 0;
+    font-size: .72rem;
+  }
+
+  nav {
+    padding: 7px;
+  }
+
+  nav button {
+    padding: 8px 10px;
+    font-size: .7rem;
+  }
+}
+
+/* Home page gets a dashboard layout that attempts to fit one screen */
+#homePage {
+  min-height: 100dvh;
+}
+
+#homePage .dashboard-panel {
+  display: grid;
+  gap: 8px;
+}
+
+#homePage .info-card,
+#homePage .action-card,
+#homePage .license-list button,
+#homePage .install {
+  margin: 0;
+}
+
+#homePage .license-list {
+  display: grid;
+  gap: 8px;
+}
+
+#homePage .license-list h2 {
+  margin: 8px 0 0;
+}
+
+#homePage .install {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media (min-height: 761px) {
+  #homePage .dashboard-panel {
+    gap: 10px;
+  }
+}
+
+/* Very short screens: hide lower-priority descriptions to keep core actions visible */
+@media (max-height: 680px) {
+  #homePage .info-card p,
+  #homePage .action-card small,
+  #homePage .install {
+    display: none;
+  }
+
+  #homePage .license-list button span {
+    display: none;
+  }
+
+  #homePage .segments {
+    display: none;
+  }
+
+  #homePage .status-ribbon {
+    margin-bottom: 6px;
+    padding: 7px 10px;
+    font-size: .68rem;
+  }
+
+  #homePage .info-card strong {
+    font-size: 1.35rem;
+  }
+
+  #homePage .action-card .icon {
+    font-size: 1.25rem;
+    min-width: 28px;
+  }
+
+  #homePage .license-list button b {
+    top: 13px;
+  }
+}
+
+/* Larger phones/tablets can breathe without creating excessive scroll */
+@media (min-height: 900px) {
+  .hero.compact {
+    padding-top: 34px;
+  }
+
+  #homePage .dashboard-panel {
+    gap: 14px;
+  }
+}
