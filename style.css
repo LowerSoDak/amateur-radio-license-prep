@@ -514,3 +514,12 @@ nav {
     padding-bottom: 18px;
   }
 }
+
+
+/* Visible app version marker */
+.version-chip {
+  display: inline-block;
+  margin-left: 6px;
+  color: var(--accent);
+  white-space: nowrap;
+}

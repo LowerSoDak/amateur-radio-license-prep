@@ -1,3 +1,5 @@
+const APP_VERSION = "v1.1.0";
+const APP_BUILD = "2026-06-24";
 const pages=["setupPage","homePage","studyPage","testPage","contactPage"];
 const state={currentClass:"technician",currentQuestion:null,exam:[],examIndex:0,examCorrect:0,reviewingMissed:false};
 function $(id){return document.getElementById(id)}
@@ -27,5 +29,15 @@ function renderExamQuestion(){const q=state.exam[state.examIndex];if(!q){finishE
 function answerExam(choice){const q=state.exam[state.examIndex];if(choice===q.correct)state.examCorrect++;document.querySelectorAll("#examAnswerList button").forEach(b=>b.disabled=true);setTimeout(nextExamQuestion,250)}
 function nextExamQuestion(){state.examIndex++;if(state.examIndex>=state.exam.length)finishExam();else renderExamQuestion()}
 function finishExam(){$("examCard").classList.add("hidden");$("examResultCard").classList.remove("hidden");const passScore=state.currentClass==="extra"?37:26;$("examFinalScore").textContent=`Score: ${state.examCorrect} / ${state.exam.length}`;$("examPassFail").textContent=state.examCorrect>=passScore?"PASS":"Keep studying and try again."}
+
+function renderVersion(){
+  document.querySelectorAll("[data-app-version]").forEach(el => {
+    el.textContent = APP_VERSION;
+  });
+  document.querySelectorAll("[data-app-build]").forEach(el => {
+    el.textContent = APP_BUILD;
+  });
+}
+
 if("serviceWorker"in navigator){navigator.serviceWorker.register("./sw.js").catch(()=>{})}
-setTheme(localStorage.getItem("theme")||"dark");if(getLicense())showPage("homePage");renderStats();
+setTheme(localStorage.getItem("theme")||"dark");if(getLicense())showPage("homePage");renderStats();renderVersion();

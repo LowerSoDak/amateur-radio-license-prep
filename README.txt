@@ -21,3 +21,5 @@ Update: Fit-to-screen responsive homepage layout added to reduce scrolling on ph
 Update: About tab now includes study-aid disclaimer, official resource links, appearance settings, and license level reset.
 
 Update: Mobile layout fixed for iPhone screen scaling, ribbon containment, and reduced home page scrolling.
+
+Update: Visible app version added. Current version: v1.1.0, build 2026-06-24.
