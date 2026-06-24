@@ -258,3 +258,259 @@ nav button{color:#F0EEE8;background:transparent;border:1px solid rgba(240,238,23
 .disclaimer-card p {
   font-size: .92rem;
 }
+
+
+/* --- Mobile layout correction: app-style dashboard, contained title, no overflow --- */
+
+body {
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+}
+
+.page {
+  padding-left: max(14px, env(safe-area-inset-left));
+  padding-right: max(14px, env(safe-area-inset-right));
+  padding-bottom: calc(76px + env(safe-area-inset-bottom));
+}
+
+.hero {
+  padding: 18px 10px 16px;
+}
+
+.hero.compact {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.hero h1 {
+  font-size: clamp(2.35rem, 13.2vw, 4.1rem);
+  line-height: .92;
+  max-width: 100%;
+  word-break: normal;
+}
+
+.hero p {
+  font-size: clamp(.95rem, 4vw, 1.15rem);
+  margin-top: 10px;
+}
+
+.rule {
+  margin-top: 14px;
+  max-width: 100%;
+}
+
+.dashboard-panel,
+.panel {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.status-ribbon {
+  display: block;
+  width: 100%;
+  margin: 0 0 8px 0;
+  padding: 9px 10px;
+  font-size: clamp(.62rem, 3vw, .78rem);
+  letter-spacing: .11em;
+  white-space: normal;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.info-card,
+.question-card,
+.install,
+.license-list button,
+.action-card {
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 9px;
+}
+
+.info-card span,
+.license-list h2 {
+  font-size: .68rem;
+  letter-spacing: .18em;
+}
+
+.info-card strong {
+  font-size: clamp(1.55rem, 8vw, 2.2rem);
+  line-height: 1.05;
+}
+
+.info-card p {
+  margin: 8px 0 0;
+  font-size: .94rem;
+  line-height: 1.28;
+}
+
+.segments {
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.segments i {
+  height: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.action-card {
+  min-height: 72px;
+}
+
+.action-card .icon {
+  font-size: 1.35rem;
+  min-width: 34px;
+}
+
+.action-card strong {
+  font-size: clamp(1.25rem, 6vw, 1.65rem);
+  line-height: 1;
+}
+
+.action-card small {
+  font-size: .84rem;
+  line-height: 1.2;
+}
+
+.license-list h2 {
+  margin: 10px 0 6px;
+}
+
+.license-list button {
+  min-height: 64px;
+}
+
+.license-list button strong {
+  font-size: clamp(1.05rem, 5vw, 1.35rem);
+}
+
+.license-list button span {
+  font-size: .82rem;
+}
+
+.license-list button b {
+  top: 19px;
+  right: 14px;
+}
+
+/* Home page specifically: keep it compact */
+#homePage {
+  min-height: 100dvh;
+  padding-top: env(safe-area-inset-top);
+}
+
+#homePage .dashboard-panel {
+  display: grid;
+  gap: 6px;
+}
+
+#homePage .info-card,
+#homePage .action-card,
+#homePage .license-list button,
+#homePage .install {
+  margin: 0;
+}
+
+#homePage .license-list {
+  display: grid;
+  gap: 6px;
+}
+
+#homePage footer {
+  margin-top: 12px;
+}
+
+/* Make the installed/safari bottom bar less likely to cover content */
+nav {
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+}
+
+/* Short phone screens: remove lower-priority supporting text */
+@media (max-height: 780px) {
+  #homePage .hero h1 {
+    font-size: clamp(2.05rem, 11.2vw, 3.45rem);
+  }
+
+  #homePage .hero {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  #homePage .hero p {
+    margin-top: 7px;
+  }
+
+  #homePage .rule {
+    margin-top: 10px;
+  }
+
+  #homePage .info-card p,
+  #homePage .action-card small {
+    display: none;
+  }
+
+  #homePage .info-card strong {
+    font-size: clamp(1.35rem, 7vw, 1.85rem);
+  }
+
+  #homePage .info-card,
+  #homePage .action-card,
+  #homePage .license-list button {
+    padding: 10px 12px;
+  }
+
+  #homePage .action-card {
+    min-height: 58px;
+  }
+
+  #homePage .license-list button {
+    min-height: 52px;
+  }
+
+  #homePage .license-list button span {
+    display: none;
+  }
+
+  #homePage .install {
+    display: none;
+  }
+
+  #homePage footer {
+    font-size: .7rem;
+    margin-top: 8px;
+  }
+}
+
+/* Very short screens, like iPhone Safari with address bar visible */
+@media (max-height: 700px) {
+  #homePage .segments,
+  #homePage .license-list h2 {
+    display: none;
+  }
+
+  #homePage .hero h1 {
+    font-size: clamp(1.85rem, 10vw, 3rem);
+  }
+
+  .status-ribbon {
+    padding: 7px 8px;
+  }
+}
+
+/* Fullscreen PWA / taller phones can breathe */
+@media (min-height: 850px) {
+  #homePage .dashboard-panel {
+    gap: 10px;
+  }
+
+  #homePage .hero {
+    padding-top: 24px;
+    padding-bottom: 18px;
+  }
+}
