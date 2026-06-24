@@ -2,6 +2,7 @@
 <rect width="512" height="512" rx="92" fill="#1A2218"/>
 <path d="M-40 360 C80 260 160 420 280 310 C390 210 470 330 560 220" fill="none" stroke="#C77A2C" stroke-width="18" opacity=".9"/>
 <path d="M-30 280 C90 190 180 340 290 230 C390 140 470 260 540 170" fill="none" stroke="#C77A2C" stroke-width="12" opacity=".7"/>
-<text x="256" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="82" font-weight="700" fill="#F0EEE8">AR</text>
-<text x="256" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#C77A2C">PREP</text>
+<text x="256" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="62" font-weight="700" fill="#F0EEE8">AMATEUR</text>
+<text x="256" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="82" font-weight="700" fill="#C77A2C">RADIO</text>
+<text x="256" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="70" font-weight="700" fill="#F0EEE8">PREP</text>
 </svg>

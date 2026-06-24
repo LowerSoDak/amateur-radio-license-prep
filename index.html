@@ -4,110 +4,98 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#1A2218">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Radio Prep">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Amateur Radio License Prep</title>
   <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="topo-layer" aria-hidden="true"></div>
+
   <main>
-    <section id="setupPage" class="page active">
-      <header class="hero">
+    <section id="setupPage" class="page active setup-page">
+      <header class="page-header home-header">
         <h1>Amateur Radio<br>License Prep</h1>
         <div class="rule"></div>
         <p>Prepare. Practice. Pass.</p>
       </header>
 
       <div class="panel">
-        <div class="kicker">First Launch Setup</div>
+        <div class="eyebrow">First Launch Setup</div>
         <h2>What license do you currently hold?</h2>
-        <p>This helps the app point you toward your next recommended certification. You can change this later.</p>
-        <div class="choice-list">
+        <p>This helps the app point you toward your next recommended certification. You can change this later in About.</p>
+        <div class="choice-grid">
           <button onclick="setLicense('none')">No Amateur Radio License</button>
           <button onclick="setLicense('technician')">Technician</button>
           <button onclick="setLicense('general')">General</button>
           <button onclick="setLicense('extra')">Amateur Extra</button>
         </div>
       </div>
-      <footer>Designed by LowerSoDak © 2026 <span class="version-chip">App <span data-app-version>v1.2.2</span></span></footer>
+      <footer>Designed by LowerSoDak © 2026 <span class="version-chip">App <span data-app-version>v2.0.0</span></span></footer>
     </section>
 
-    <section id="homePage" class="page">
-      <header class="hero compact">
+    <section id="homePage" class="page home-page">
+      <header class="page-header home-header">
         <h1>Amateur Radio<br>License Prep</h1>
         <div class="rule"></div>
         <p>Prepare. Practice. Pass.</p>
       </header>
 
-      <div class="dashboard-panel">
-        <div class="pool-warning">Sample pool content included until official pools are loaded.</div>
-        <div class="status-ribbon" id="trackRibbon">Current Track</div>
+      <div class="dashboard">
+        <div class="notice">Sample pool content included until official pools are loaded.</div>
+        <div class="track" id="trackRibbon">Current Track</div>
 
-        <div class="info-card">
-          <span>Current License</span>
-          <strong id="currentLicenseText">Technician</strong>
-        </div>
+        <article class="card compact-card">
+          <div class="eyebrow">Current License</div>
+          <h2 id="currentLicenseText">No License</h2>
+        </article>
 
-        <div class="info-card featured">
-          <span>Next Certification</span>
-          <strong id="nextCertText">General</strong>
+        <article class="card">
+          <div class="eyebrow">Next Certification</div>
+          <h2 id="nextCertText">Technician</h2>
           <p id="recommendedText">Based on your current license level, this is your next recommended certification.</p>
-          <div class="segments" aria-label="Progress">
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          </div>
-        </div>
+          <div class="segments" aria-label="Progress"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
 
-        <button class="action-card" onclick="openStudyRecommended()">
-          <span class="icon" aria-hidden="true">▤</span>
-          <span><strong>Study</strong><small>Question pool, explanations, review missed</small></span>
-        </button>
-
-        <button class="action-card" onclick="openTestRecommended()">
-          <span class="icon" aria-hidden="true">☑</span>
-          <span><strong>Mock Test</strong><small>Practice exam with scoring</small></span>
-        </button>
+        <button class="action" onclick="openStudyRecommended()"><span>▤</span><strong>Study</strong><small>Question pool, explanations, review missed</small></button>
+        <button class="action" onclick="openTestRecommended()"><span>☑</span><strong>Mock Test</strong><small>Practice exam with scoring</small></button>
 
         <section class="license-list">
-          <h2>License Classes</h2>
-          <button onclick="selectClass('technician'); showPage('studyPage')"><strong>Technician</strong><span>Entry Level License</span><b id="techMark"></b></button>
-          <button onclick="selectClass('general'); showPage('studyPage')"><strong>General</strong><span>Expanded HF Privileges</span><b id="genMark"></b></button>
-          <button onclick="selectClass('extra'); showPage('studyPage')"><strong>Amateur Extra</strong><span>Highest Amateur License</span><b id="extraMark"></b></button>
+          <div class="eyebrow">License Classes</div>
+          <button onclick="selectClass('technician'); showPage('studyPage')"><strong>Technician</strong><b id="techMark"></b></button>
+          <button onclick="selectClass('general'); showPage('studyPage')"><strong>General</strong><b id="genMark"></b></button>
+          <button onclick="selectClass('extra'); showPage('studyPage')"><strong>Amateur Extra</strong><b id="extraMark"></b></button>
         </section>
 
         <section class="progress-summary">
-          <h2>Progress by License Class</h2>
+          <div class="eyebrow">Progress by License Class</div>
           <div id="progressSummary"></div>
         </section>
 
         <details class="install">
           <summary>Install on Device</summary>
           <h3>iPhone / iPad</h3>
-          <ol>
-            <li>Open this page in Safari.</li>
-            <li>Tap the Share button.</li>
-            <li>Tap Add to Home Screen.</li>
-            <li>Tap Add.</li>
-          </ol>
+          <ol><li>Open this page in Safari.</li><li>Tap Share.</li><li>Tap Add to Home Screen.</li><li>Tap Add.</li></ol>
           <h3>Android</h3>
-          <ol>
-            <li>Open this page in Chrome.</li>
-            <li>Tap the three-dot menu.</li>
-            <li>Tap Add to Home Screen or Install App.</li>
-            <li>Tap Install.</li>
-          </ol>
+          <ol><li>Open this page in Chrome.</li><li>Tap the three-dot menu.</li><li>Tap Add to Home Screen or Install App.</li><li>Tap Install.</li></ol>
         </details>
       </div>
-      <footer>Designed by LowerSoDak © 2026 <span class="version-chip">App <span data-app-version>v1.2.2</span></span></footer>
+
+      <footer>Designed by LowerSoDak © 2026 <span class="version-chip">App <span data-app-version>v2.0.0</span></span></footer>
     </section>
 
     <section id="studyPage" class="page">
-      <header class="subhead">
+      <header class="page-header">
         <h1 id="studyTitle">Study</h1>
         <p>Randomized question practice</p>
       </header>
 
-      <div class="dashboard-panel">
-        <div class="form-row">
+      <div class="panel">
+        <div class="form-grid">
           <select id="classSelect" onchange="selectClass(this.value)">
             <option value="technician">Technician</option>
             <option value="general">General</option>
@@ -117,18 +105,17 @@
             <option value="all">All Sections</option>
           </select>
         </div>
-        <div>
+
+        <div class="button-row">
           <button class="primary" onclick="newQuestion()">Random Question</button>
           <button class="secondary" onclick="reviewMissed()">Review Missed</button>
           <button class="secondary" onclick="clearStudyStats()">Clear Stats</button>
         </div>
+
         <p class="pool-label">Pool: <span data-pool-version>Question pool</span></p>
 
         <article class="question-card">
-          <div class="question-meta">
-            <span id="questionId">Question</span>
-            <span id="questionCount">0 loaded</span>
-          </div>
+          <div class="question-meta"><span id="questionId">Question</span><span id="questionCount">0 loaded</span></div>
           <h2 id="questionText">Choose a class and start studying.</h2>
           <div id="answerList" class="answers"></div>
           <div id="resultBox" class="result hidden">
@@ -143,7 +130,7 @@
         </article>
 
         <section class="missed-sections">
-          <h3>Missed by Section</h3>
+          <div class="eyebrow">Missed by Section</div>
           <div id="missedBySection"></div>
         </section>
 
@@ -153,21 +140,24 @@
           <div><strong id="missedStat">0</strong><span>Missed</span></div>
         </section>
       </div>
-      <footer>Designed by LowerSoDak © 2026 <span class="version-chip">App <span data-app-version>v1.2.2</span></span></footer>
+
+      <footer>Designed by LowerSoDak © 2026 <span class="version-chip">App <span data-app-version>v2.0.0</span></span></footer>
     </section>
 
     <section id="testPage" class="page">
-      <header class="subhead">
+      <header class="page-header">
         <h1>Mock Test</h1>
         <p>Practice exam mode</p>
       </header>
 
-      <div class="dashboard-panel">
-        <div class="info-card">
-          <span>Practice Exam</span>
-          <strong>Start Test</strong>
-          <p>Technician and General practice tests are 35 questions. Amateur Extra is 50 questions.</p><p><strong>Exam Mode Lockout:</strong> explanations and correct answers are hidden until the test is completed.</p>
-        </div>
+      <div class="panel">
+        <article class="card">
+          <div class="eyebrow">Practice Exam</div>
+          <h2>Start Test</h2>
+          <p>Technician and General practice tests are 35 questions. Amateur Extra is 50 questions.</p>
+          <p><strong>Exam Mode Lockout:</strong> explanations and correct answers are hidden until the test is completed.</p>
+        </article>
+
         <select id="testClassSelect">
           <option value="technician">Technician</option>
           <option value="general">General</option>
@@ -176,10 +166,7 @@
         <button class="primary" onclick="startExam()">Start Exam</button>
 
         <article id="examCard" class="question-card hidden">
-          <div class="question-meta">
-            <span id="examProgress">Question 1</span>
-            <span id="examScoreLive">Mock Test</span>
-          </div>
+          <div class="question-meta"><span id="examProgress">Question 1</span><span>Mock Test</span></div>
           <h2 id="examQuestionText"></h2>
           <div id="examAnswerList" class="answers"></div>
           <button class="secondary" onclick="nextExamQuestion()">Next</button>
@@ -191,95 +178,96 @@
           <button class="primary" onclick="showPage('studyPage')">Review Study Mode</button>
         </article>
       </div>
-      <footer>Designed by LowerSoDak © 2026 <span class="version-chip">App <span data-app-version>v1.2.2</span></span></footer>
+
+      <footer>Designed by LowerSoDak © 2026 <span class="version-chip">App <span data-app-version>v2.0.0</span></span></footer>
     </section>
 
     <section id="contactPage" class="page">
-      <header class="subhead">
+      <header class="page-header">
         <h1>About</h1>
         <p>Study tool information and disclaimer</p>
       </header>
 
-      <div class="dashboard-panel">
-        <div class="info-card about-primary">
-          <span>About This App</span>
-          <strong>Amateur Radio License Prep</strong>
+      <div class="panel">
+        <article class="card about-primary">
+          <div class="eyebrow">About This App</div>
+          <h2>Amateur Radio License Prep</h2>
           <p>An offline-first study and testing preparation tool for U.S. Amateur Radio license classes.</p>
-          <p><strong>Designed by LowerSoDak © 2026 <span class="version-chip">App <span data-app-version>v1.2.2</span></span></strong></p>
-
+          <p class="about-credit"><strong>Designed by LowerSoDak © 2026</strong></p>
           <div class="contact-links">
             <a href="https://www.reddit.com/user/YOUR_REDDIT_USERNAME" target="_blank" rel="noopener">Reddit</a>
             <a href="https://discord.gg/YOUR_DISCORD_INVITE" target="_blank" rel="noopener">Discord</a>
           </div>
-        </div>
+        </article>
 
-        <div class="info-card">
-          <span>Maintenance</span>
-          <strong>Force Refresh App</strong>
+        <article class="card">
+          <div class="eyebrow">Maintenance</div>
+          <h2>Force Refresh App</h2>
           <p>Use this after uploading a new version if your phone keeps showing old files.</p>
           <button class="primary" onclick="forceRefreshApp()">Force Refresh App</button>
-        </div>
+        </article>
 
-        <div class="info-card">
-          <span>Appearance</span>
-          <strong>Background Mode</strong>
+        <article class="card">
+          <div class="eyebrow">Appearance</div>
+          <h2>Background Mode</h2>
           <button class="secondary" onclick="setTheme('light')">Light</button>
           <button class="primary" onclick="setTheme('dark')">Dark</button>
-        </div>
+        </article>
 
-        <div class="info-card">
-          <span>Current License</span>
-          <strong>Change Level</strong>
-          <div class="choice-list compact">
+        <article class="card">
+          <div class="eyebrow">Current License</div>
+          <h2>Change Level</h2>
+          <div class="choice-grid two">
             <button onclick="setLicense('none')">No License</button>
             <button onclick="setLicense('technician')">Technician</button>
             <button onclick="setLicense('general')">General</button>
             <button onclick="setLicense('extra')">Extra</button>
           </div>
-        </div>
+        </article>
 
-        <div class="info-card disclaimer-card">
-          <span>Disclaimer</span>
-          <strong>Study Aid Only</strong>
+        <article class="card disclaimer-card">
+          <div class="eyebrow">Disclaimer</div>
+          <h2>Study Aid Only</h2>
           <p>This application is provided solely as a study and educational aid for Amateur Radio licensing preparation.</p>
           <p>Use of this application does not guarantee successful completion of any Amateur Radio examination, issuance of a license, or approval by the Federal Communications Commission (FCC), any Volunteer Examiner Coordinator (VEC), or any Volunteer Examiner (VE) team.</p>
           <p>While every effort is made to provide accurate and current information, question pools, explanations, references, and study materials may contain errors, omissions, or outdated content. Users are responsible for verifying all information against current FCC regulations, official question pools, and authoritative Amateur Radio resources.</p>
           <p>The developers, contributors, and distributors of this application assume no responsibility for examination results, licensing outcomes, regulatory compliance, or decisions made based on information provided within this application.</p>
           <p>By using this application, you acknowledge that it is intended as a supplemental study tool and not as an official licensing resource.</p>
-        </div>
+        </article>
 
-        <div class="info-card disclaimer-card">
-          <span>Affiliation Notice</span>
-          <strong>Independent Tool</strong>
+        <article class="card disclaimer-card">
+          <div class="eyebrow">Affiliation Notice</div>
+          <h2>Independent Tool</h2>
           <p>This app is not affiliated with, endorsed by, or sponsored by the FCC, ARRL, NCVEC, any VEC, or any official licensing authority.</p>
-        </div>
+        </article>
 
-        <div class="info-card">
-          <span>Question Pool Source Notice</span>
-          <strong>Pool Status</strong>
+        <article class="card">
+          <div class="eyebrow">Question Pool Source Notice</div>
+          <h2>Pool Status</h2>
           <p>Current build uses sample/placeholder question pool content for testing. Before public release, load and verify official question pools from authorized public sources.</p>
           <p>Displayed pool: <span data-pool-version>Question pool</span></p>
           <p>Last app update: <span data-app-build>2026-06-24</span></p>
-        </div>
+        </article>
 
-        <div class="info-card">
-          <span>Official Resources</span>
-          <strong>Helpful Links</strong>
+        <article class="card">
+          <div class="eyebrow">Official Resources</div>
+          <h2>Helpful Links</h2>
           <p>These links require internet access.</p>
           <p><a href="https://www.fcc.gov/wireless/bureau-divisions/mobility-division/amateur-radio-service" target="_blank" rel="noopener">FCC Amateur Radio Service</a></p>
           <p><a href="https://www.ecfr.gov/current/title-47/chapter-I/subchapter-D/part-97" target="_blank" rel="noopener">FCC Part 97 Rules</a></p>
           <p><a href="https://www.arrl.org/question-pools" target="_blank" rel="noopener">ARRL Question Pools</a></p>
           <p><a href="https://www.arrl.org/find-an-amateur-radio-license-exam-session" target="_blank" rel="noopener">Find an Exam Session</a></p>
-        </div>
+        </article>
 
-        <div class="info-card">
-          <span>Version</span>
-          <strong><span data-app-version>v1.2.2</span></strong>
+        <article class="card">
+          <div class="eyebrow">Version</div>
+          <h2><span data-app-version>v2.0.0</span></h2>
           <p>Build: <span data-app-build>2026-06-24</span></p>
           <p>Offline support enabled. Sample question pool included for testing. Full official question pools should be added before public use.</p>
-        </div>
+        </article>
       </div>
-      <footer>Designed by LowerSoDak © 2026 <span class="version-chip">App <span data-app-version>v1.2.2</span></span></footer>
+
+      <footer>Designed by LowerSoDak © 2026 <span class="version-chip">App <span data-app-version>v2.0.0</span></span></footer>
     </section>
   </main>
 
