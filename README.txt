@@ -41,3 +41,5 @@ Update v1.2.0:
 - Disclaimer expanded.
 - FCC/ARRL/NCVEC affiliation notice added.
 - Source/last-updated notice added.
+
+Update v1.2.1: About page reorganized. Maintenance/appearance/license controls moved below About card. Reddit and Discord placeholder links added.
