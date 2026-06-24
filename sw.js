@@ -1,4 +1,4 @@
-const CACHE_NAME = "amateur-radio-prep-v2.0.0";
+const CACHE_NAME = "amateur-radio-prep-v2.1.0";
 const ASSETS = [
   "./",
   "./index.html",
@@ -15,7 +15,21 @@ const ASSETS = [
   "./icon-192.png",
   "./icon-512.png",
   "./icon-1024.png",
-  "./maskable-512.png"
+  "./maskable-512.png",
+  "./figures/e5-1.png",
+  "./figures/e6-1.png",
+  "./figures/e6-2.png",
+  "./figures/e6-3.png",
+  "./figures/e7-1.png",
+  "./figures/e7-2.png",
+  "./figures/e7-3.png",
+  "./figures/e9-1.png",
+  "./figures/e9-2.png",
+  "./figures/e9-3.png",
+  "./figures/g7-1.png",
+  "./figures/t-1.png",
+  "./figures/t-2.png",
+  "./figures/t-3.png"
 ];
 
 self.addEventListener("install", event => {

@@ -1,9 +1,9 @@
-const APP_VERSION = "v2.0.0";
+const APP_VERSION = "v2.1.0";
 const APP_BUILD = "2026-06-24";
 const POOL_META = {
   technician: "Technician 2026–2030",
-  general: "General pool placeholder",
-  extra: "Amateur Extra pool placeholder"
+  general: "General 2023–2027",
+  extra: "Amateur Extra 2024–2028"
 };
 
 const pages = ["setupPage","homePage","studyPage","testPage","contactPage"];
@@ -144,6 +144,16 @@ function reviewMissed(){
 function renderQuestion(q){
   $("questionId").textContent = q.id + " • " + (q.sectionName || q.section);
   $("questionText").textContent = q.question;
+  const figBox = $("figureBox");
+  if(figBox){
+    if(q.figure){
+      figBox.innerHTML = `<img src="${q.figure}" alt="Question figure" loading="lazy">`;
+      figBox.classList.remove("hidden");
+    } else {
+      figBox.innerHTML = "";
+      figBox.classList.add("hidden");
+    }
+  }
   $("resultBox").classList.add("hidden");
   $("explanationDetails").open = false;
   $("answerList").innerHTML = q.answers.map((a,i) => `<button onclick="answerQuestion(${i}, this)"><strong>${String.fromCharCode(65+i)}.</strong> ${a}</button>`).join("");
@@ -210,6 +220,16 @@ function renderExamQuestion(){
   if(!q){ finishExam(); return; }
   $("examProgress").textContent = `Question ${state.examIndex + 1} of ${state.exam.length}`;
   $("examQuestionText").textContent = q.question;
+  const examFig = $("examFigureBox");
+  if(examFig){
+    if(q.figure){
+      examFig.innerHTML = `<img src="${q.figure}" alt="Question figure" loading="lazy">`;
+      examFig.classList.remove("hidden");
+    } else {
+      examFig.innerHTML = "";
+      examFig.classList.add("hidden");
+    }
+  }
   $("examAnswerList").innerHTML = q.answers.map((a,i) => `<button onclick="answerExam(${i})"><strong>${String.fromCharCode(65+i)}.</strong> ${a}</button>`).join("");
 }
 

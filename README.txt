@@ -1,22 +1,17 @@
-AMATEUR RADIO LICENSE PREP - VERSION v2.0.0
+AMATEUR RADIO LICENSE PREP - VERSION v2.1.0
 
-Upload all files in this folder to the root of your GitHub Pages repository.
+Final full-pool build. Upload all files in this folder to the root of your GitHub Pages repository.
 
-This is a clean rebuild of the previous app with:
-- Simplified responsive CSS
-- Cleaner page/tab behavior
-- Proper icon set
-- iPhone/Android PWA support
-- Scalable topo SVG background
-- Translucent panels
-- First-launch license selection
-- Study mode
-- Mock test mode
-- About/disclaimer page
-- Force Refresh App button
-- Version/build display
+Included question pools:
+- Technician 2026–2030: 409 questions
+- General 2023–2027: 423 questions
+- Amateur Extra 2024–2028: 599 questions
 
-Important:
-questions.js currently contains sample placeholder questions only. Replace it with full official question pools before public release.
+Included figure files are stored in /figures and displayed automatically for figure-based questions.
+
+Notes:
+- The pools were converted from NCVEC public release PDFs dated Feb. 4/19 2026 where applicable.
+- Verify content against official NCVEC/FCC resources before public release.
+- Discord contact link removed. Reddit placeholder remains in index.html.
 
 Designed by LowerSoDak © 2026

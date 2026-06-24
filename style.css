@@ -115,3 +115,25 @@ nav button{background:transparent;color:#F0EEE8;border:1px solid rgba(240,238,23
 @media(max-height:650px){
   .home-header p,.home-header .rule{display:none}
 }
+
+
+/* v2.1.0 full-pool figure support and final contact cleanup */
+.figure-box {
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  margin: 10px 0;
+}
+.figure-box img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.contact-links {
+  justify-content: center;
+}
+.contact-links a {
+  min-width: 128px;
+}
