@@ -743,3 +743,144 @@ nav {
   margin-left: 5px;
   white-space: nowrap;
 }
+
+
+/* --- v1.1.2 Home title and containment fix --- */
+
+/* Prevent right-side overflow from dashboard contents */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main,
+.page,
+.dashboard-panel,
+.panel,
+.info-card,
+.question-card,
+.install,
+.license-list,
+.license-list button,
+.action-card,
+.form-row,
+select,
+button {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.dashboard-panel {
+  overflow: hidden;
+}
+
+/* Home page only: smaller, centered, two-line app title */
+#homePage .hero.compact {
+  text-align: center;
+  padding: 10px 8px 12px;
+}
+
+#homePage .hero.compact h1 {
+  font-size: clamp(1.8rem, 7.3vw, 2.55rem) !important;
+  line-height: 1.03 !important;
+  letter-spacing: .055em;
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Hide the original three-line/tall title text and replace with two clean lines */
+#homePage .hero.compact h1 {
+  color: transparent;
+  position: relative;
+  min-height: calc(clamp(1.8rem, 7.3vw, 2.55rem) * 2.12);
+}
+
+#homePage .hero.compact h1::before {
+  content: "AMATEUR RADIO";
+  display: block;
+  color: var(--text);
+  font-size: clamp(1.8rem, 7.3vw, 2.55rem);
+  line-height: 1.03;
+}
+
+#homePage .hero.compact h1::after {
+  content: "LICENSE PREP";
+  display: block;
+  color: var(--text);
+  font-size: clamp(1.8rem, 7.3vw, 2.55rem);
+  line-height: 1.03;
+}
+
+#homePage .hero.compact .rule {
+  margin: 10px auto 0;
+  width: 100%;
+  height: 2px;
+}
+
+#homePage .hero.compact p {
+  text-align: center;
+  font-size: clamp(.82rem, 3.3vw, .95rem);
+  margin-top: 7px;
+}
+
+/* Tighten the home dashboard so it reads like an app screen */
+#homePage .dashboard-panel {
+  width: 100%;
+  padding: 10px;
+  gap: 7px;
+}
+
+#homePage .status-ribbon {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  white-space: nowrap;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: clamp(.56rem, 2.5vw, .68rem);
+}
+
+#homePage .info-card,
+#homePage .action-card,
+#homePage .license-list button,
+#homePage .install {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#homePage .info-card strong {
+  font-size: clamp(1.35rem, 6.5vw, 1.9rem);
+}
+
+/* Keep the right edge of action cards and question cards inside their panel */
+.action-card,
+.question-card,
+.info-card {
+  width: 100%;
+}
+
+/* Short iPhone Safari view */
+@media (max-height: 760px) {
+  #homePage .hero.compact h1::before,
+  #homePage .hero.compact h1::after {
+    font-size: clamp(1.55rem, 6.6vw, 2.15rem);
+  }
+
+  #homePage .hero.compact h1 {
+    min-height: calc(clamp(1.55rem, 6.6vw, 2.15rem) * 2.12);
+  }
+
+  #homePage .hero.compact {
+    padding-top: 6px;
+    padding-bottom: 8px;
+  }
+
+  #homePage .hero.compact .rule {
+    margin-top: 8px;
+  }
+}

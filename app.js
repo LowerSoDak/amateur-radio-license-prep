@@ -1,4 +1,4 @@
-const APP_VERSION = "v1.1.1";
+const APP_VERSION = "v1.1.2";
 const APP_BUILD = "2026-06-24";
 const pages=["setupPage","homePage","studyPage","testPage","contactPage"];
 const state={currentClass:"technician",currentQuestion:null,exam:[],examIndex:0,examCorrect:0,reviewingMissed:false};
