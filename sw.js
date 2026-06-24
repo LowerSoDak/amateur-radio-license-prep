@@ -1,4 +1,4 @@
-const CACHE_NAME = "amateur-radio-prep-v1.2.1";
+const CACHE_NAME = "amateur-radio-prep-v1.2.2";
 const ASSETS = ["./","./index.html","./style.css","./app.js","./questions.js","./sw.js","./manifest.webmanifest","./icon.svg","./topo-background.svg"];
 self.addEventListener("install", e => {e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS)));self.skipWaiting();});
 self.addEventListener("activate", e => {e.waitUntil(caches.keys().then(keys => Promise.all(keys.map(k => k !== CACHE_NAME ? caches.delete(k) : null))));self.clients.claim();});

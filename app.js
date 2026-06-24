@@ -1,4 +1,4 @@
-const APP_VERSION = "v1.2.1";
+const APP_VERSION = "v1.2.2";
 const APP_BUILD = "2026-06-24";
 const POOL_META = {
   technician: "Technician 2026–2030",

@@ -1036,3 +1036,83 @@ button {
   font-size: .78rem;
   opacity: .82;
 }
+
+
+/* --- v1.2.2 Final polish: home spacing, About credit size, remove placeholder note --- */
+
+/* Home header: reduce unused vertical space between title, rule, tagline, and dashboard */
+#homePage .hero.compact {
+  padding-top: 4px !important;
+  padding-bottom: 6px !important;
+}
+
+#homePage .hero.compact h1 {
+  margin-bottom: 0 !important;
+}
+
+#homePage .hero.compact .rule {
+  margin-top: 6px !important;
+  margin-bottom: 0 !important;
+}
+
+#homePage .hero.compact p {
+  margin-top: 5px !important;
+  margin-bottom: 0 !important;
+}
+
+#homePage .dashboard-panel {
+  margin-top: 4px !important;
+}
+
+/* About card credit: smaller than the main app title */
+.about-primary .about-credit {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.about-primary .about-credit strong {
+  display: block;
+  font-size: clamp(1.15rem, 5.8vw, 1.75rem);
+  line-height: 1.08;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+
+/* Contact buttons stay clean without placeholder editor text */
+.contact-links {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.edit-note {
+  display: none !important;
+}
+
+/* Slightly tighter About primary card spacing */
+.about-primary p {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+/* Home warning stays compact */
+#homePage .pool-warning {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  line-height: 1.15;
+}
+
+/* Small-screen home: keep the top compact */
+@media (max-height: 760px) {
+  #homePage .hero.compact {
+    padding-top: 2px !important;
+    padding-bottom: 4px !important;
+  }
+
+  #homePage .hero.compact .rule {
+    margin-top: 5px !important;
+  }
+
+  #homePage .hero.compact p {
+    margin-top: 4px !important;
+  }
+}
