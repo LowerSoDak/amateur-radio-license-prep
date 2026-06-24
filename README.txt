@@ -1,20 +1,17 @@
-AMATEUR RADIO LICENSE PREP
+AMATEUR RADIO LICENSE PREP - TOPO VERSION
 
-Upload all files in this folder to GitHub Pages or any static web host.
+Upload all files in this folder to the root of your GitHub Pages repository.
 
-Files:
-- index.html
-- style.css
-- app.js
-- questions.js
-- sw.js
-- manifest.webmanifest
-- icon.svg
-
-Offline behavior:
-Open the app once while online. The service worker caches the app files for offline use.
+This version includes:
+- Scalable SVG topo background
+- Dark green / orange map-inspired theme
+- Translucent dashboard panels
+- First-launch license selection
+- Technician / General / Extra structure
+- Study and mock test pages
+- Offline service worker
 
 Important:
-The question bank currently contains sample placeholder questions only. Replace questions.js with full Technician, General, and Extra question pools using the same JSON structure.
+questions.js currently contains sample placeholder questions only. Replace it with the full question pools later.
 
 Designed by LowerSoDak © 2026

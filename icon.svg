@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<rect width="512" height="512" rx="96" fill="#2f3a24"/>
-<path d="M150 138v236h90V138h-90zm122 0v236h90V138h-90z" fill="#f8f6ee" opacity=".95"/>
-<path d="M195 76v62M317 76v62" stroke="#f8f6ee" stroke-width="18" stroke-linecap="round"/>
-<circle cx="256" cy="256" r="11" fill="#d3a64a"/>
-<path d="M219 256h-46M293 256h46" stroke="#d3a64a" stroke-width="14" stroke-linecap="round"/>
-<rect x="170" y="176" width="50" height="30" rx="6" fill="#9caf67"/>
-<rect x="292" y="176" width="50" height="30" rx="6" fill="#9caf67"/>
+<rect width="512" height="512" rx="92" fill="#1A2218"/>
+<path d="M-40 360 C80 260 160 420 280 310 C390 210 470 330 560 220" fill="none" stroke="#C77A2C" stroke-width="18" opacity=".9"/>
+<path d="M-30 280 C90 190 180 340 290 230 C390 140 470 260 540 170" fill="none" stroke="#C77A2C" stroke-width="12" opacity=".7"/>
+<text x="256" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="82" font-weight="700" fill="#F0EEE8">AR</text>
+<text x="256" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#C77A2C">PREP</text>
 </svg>

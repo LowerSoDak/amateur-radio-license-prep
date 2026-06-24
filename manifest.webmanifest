@@ -3,8 +3,8 @@
   "short_name": "Radio Prep",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#12160f",
-  "theme_color": "#2f3a24",
+  "background_color": "#1A2218",
+  "theme_color": "#1A2218",
   "icons": [
     {
       "src": "icon.svg",
