@@ -1,4 +1,4 @@
-const APP_VERSION = "v3.0.0";
+const APP_VERSION = "v3.0.1";
 const APP_BUILD = "2026-06-24";
 const POOL_META = {
   technician: "Technician 2026–2030",
@@ -141,22 +141,55 @@ function reviewMissed(){
   renderQuestion(state.currentQuestion);
 }
 
-function renderQuestion(q){
-  $("questionId").textContent = q.id + " • " + (q.sectionName || q.section);
-  $("questionText").textContent = q.question;
-  const figBox = $("figureBox");
-  if(figBox){
-    if(q.figure){
-      figBox.innerHTML = `<img src="${q.figure}" alt="Question figure" loading="lazy">`;
-      figBox.classList.remove("hidden");
-    } else {
-      figBox.innerHTML = "";
-      figBox.classList.add("hidden");
-    }
+
+function getAnswerChoices(q){
+  if(Array.isArray(q.answers)) return q.answers;
+  if(Array.isArray(q.choices)) return q.choices;
+  if(Array.isArray(q.options)) return q.options;
+
+  const upper = ["A","B","C","D","E"].map(k => q[k]).filter(Boolean);
+  if(upper.length) return upper;
+
+  const lower = ["a","b","c","d","e"].map(k => q[k]).filter(Boolean);
+  if(lower.length) return lower;
+
+  const named = [q.answerA, q.answerB, q.answerC, q.answerD, q.answerE].filter(Boolean);
+  if(named.length) return named;
+
+  return [];
+}
+
+function getCorrectIndex(q){
+  if(Number.isInteger(q.correct)) return q.correct;
+  if(Number.isInteger(q.correctIndex)) return q.correctIndex;
+
+  const raw = q.correct ?? q.answer ?? q.correctAnswer ?? q.key ?? q.correct_letter;
+  if(typeof raw === "string"){
+    const c = raw.trim().toUpperCase();
+    if(["A","B","C","D","E"].includes(c)) return c.charCodeAt(0) - 65;
+    const n = parseInt(c, 10);
+    if(!Number.isNaN(n)) return n;
   }
+
+  return 0;
+}
+
+function renderQuestion(q){
+  const choices = getAnswerChoices(q);
+  const questionText = q.question || q.prompt || q.text || "Question text unavailable.";
+
+  $("questionId").textContent = (q.id || q.questionId || "Question") + " • " + (q.sectionName || q.section || "Question Pool");
+  $("questionText").textContent = questionText;
   $("resultBox").classList.add("hidden");
-  $("explanationDetails").open = false;
-  $("answerList").innerHTML = q.answers.map((a,i) => `<button onclick="answerQuestion(${i}, this)"><strong>${String.fromCharCode(65+i)}.</strong> ${a}</button>`).join("");
+
+  if(!choices.length){
+    $("answerList").innerHTML = `<p class="pool-label">No answer choices found for this question. Check question data format.</p>`;
+    return;
+  }
+
+  $("answerList").innerHTML = choices.map((a,i) =>
+    `<button onclick="answerQuestion(${i}, this)"><strong>${String.fromCharCode(65+i)}.</strong> ${a}</button>`
+  ).join("");
 }
 
 function getStats(){
@@ -180,14 +213,18 @@ function renderStats(){
 
 function answerQuestion(choice, btn){
   const q = state.currentQuestion;
-  const correct = q.correct;
+  const correct = getCorrectIndex(q);
+  const choices = getAnswerChoices(q);
+
   document.querySelectorAll("#answerList button").forEach((b,i) => {
     b.disabled = true;
     if(i === correct) b.classList.add("correct");
     if(i === choice && i !== correct) b.classList.add("wrong");
   });
+
   const s = getStats();
   s.seen++;
+
   if(choice === correct){
     s.correct++;
     s.missedIds = (s.missedIds || []).filter(id => id !== q.id);
@@ -195,9 +232,10 @@ function answerQuestion(choice, btn){
   } else {
     s.missed++;
     s.missedIds = [...new Set([...(s.missedIds || []), q.id])];
-    $("resultText").innerHTML = `<span class="result-badge bad">Incorrect</span><span>Correct Answer: ${String.fromCharCode(65+correct)}</span>`;
+    $("resultText").innerHTML = `<span class="result-badge bad">Incorrect</span><span>Correct Answer: ${String.fromCharCode(65+correct)}${choices[correct] ? ". " + choices[correct] : ""}</span>`;
   }
-      $("resultBox").classList.remove("hidden");
+
+  $("resultBox").classList.remove("hidden");
   saveStats(s);
 }
 
@@ -216,24 +254,18 @@ function startExam(){
 function renderExamQuestion(){
   const q = state.exam[state.examIndex];
   if(!q){ finishExam(); return; }
+
+  const choices = getAnswerChoices(q);
   $("examProgress").textContent = `Question ${state.examIndex + 1} of ${state.exam.length}`;
-  $("examQuestionText").textContent = q.question;
-  const examFig = $("examFigureBox");
-  if(examFig){
-    if(q.figure){
-      examFig.innerHTML = `<img src="${q.figure}" alt="Question figure" loading="lazy">`;
-      examFig.classList.remove("hidden");
-    } else {
-      examFig.innerHTML = "";
-      examFig.classList.add("hidden");
-    }
-  }
-  $("examAnswerList").innerHTML = q.answers.map((a,i) => `<button onclick="answerExam(${i})"><strong>${String.fromCharCode(65+i)}.</strong> ${a}</button>`).join("");
+  $("examQuestionText").textContent = q.question || q.prompt || q.text || "Question text unavailable.";
+  $("examAnswerList").innerHTML = choices.map((a,i) =>
+    `<button onclick="answerExam(${i})"><strong>${String.fromCharCode(65+i)}.</strong> ${a}</button>`
+  ).join("");
 }
 
 function answerExam(choice){
   const q = state.exam[state.examIndex];
-  if(choice === q.correct) state.examCorrect++;
+  if(choice === getCorrectIndex(q)) state.examCorrect++;
   document.querySelectorAll("#examAnswerList button").forEach(b => b.disabled = true);
   setTimeout(nextExamQuestion, 250);
 }

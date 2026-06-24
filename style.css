@@ -353,3 +353,35 @@ footer {
     margin-right: auto;
   }
 }
+
+
+/* --- v3.0.1 fixes --- */
+/* Fix missing answer buttons by supporting full-pool data formats in JS. */
+/* Tighten Study page header so it does not clip under iPhone Dynamic Island. */
+
+#studyPage .page-header {
+  padding-top: max(8px, env(safe-area-inset-top)) !important;
+  padding-bottom: 10px !important;
+}
+
+#studyPage .page-header h1 {
+  font-size: clamp(2rem, 9vw, 3.4rem) !important;
+  line-height: .94 !important;
+}
+
+#studyPage .page-header p {
+  font-size: clamp(.9rem, 3.8vw, 1.05rem) !important;
+  margin-top: 8px !important;
+}
+
+.contact-links {
+  justify-content: center !important;
+}
+
+.contact-links a:only-child {
+  min-width: 170px;
+}
+
+.answers button {
+  display: block !important;
+}

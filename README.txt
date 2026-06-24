@@ -23,3 +23,9 @@ Update v3.0.0:
 - Removed explanation/reason UI.
 - Smoother home/study/about visual styling.
 - Version and cache bumped to v3.0.0.
+
+Update v3.0.1:
+- Fixed Study mode answer choices not displaying with full-pool data.
+- Added Reddit profile link: https://www.reddit.com/u/LowerSoDak
+- Removed Discord contact button.
+- Tightened Study page header spacing.
