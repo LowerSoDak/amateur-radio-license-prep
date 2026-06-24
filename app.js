@@ -1,4 +1,4 @@
-const APP_VERSION = "v2.1.0";
+const APP_VERSION = "v3.0.0";
 const APP_BUILD = "2026-06-24";
 const POOL_META = {
   technician: "Technician 2026–2030",
@@ -191,15 +191,13 @@ function answerQuestion(choice, btn){
   if(choice === correct){
     s.correct++;
     s.missedIds = (s.missedIds || []).filter(id => id !== q.id);
-    $("resultText").innerHTML = `<strong>Correct.</strong> Answer ${String.fromCharCode(65+correct)}.`;
+    $("resultText").innerHTML = `<span class="result-badge good">Correct</span><span>Answer ${String.fromCharCode(65+correct)}</span>`;
   } else {
     s.missed++;
     s.missedIds = [...new Set([...(s.missedIds || []), q.id])];
-    $("resultText").innerHTML = `<strong>Incorrect.</strong> Correct answer: ${String.fromCharCode(65+correct)}.`;
+    $("resultText").innerHTML = `<span class="result-badge bad">Incorrect</span><span>Correct Answer: ${String.fromCharCode(65+correct)}</span>`;
   }
-  $("explanationText").textContent = q.explanation || "Explanation coming soon.";
-  $("linkList").innerHTML = (q.links || []).map(l => `<a target="_blank" rel="noopener" href="${l.url}">${l.label}</a>`).join("");
-  $("resultBox").classList.remove("hidden");
+      $("resultBox").classList.remove("hidden");
   saveStats(s);
 }
 
